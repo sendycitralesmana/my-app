@@ -26,6 +26,9 @@ class LifeCycleComp extends Component {
 
     shouldComponentUpdate (nextProps, nextState) {
         console.log('shouldComponentUpdate')
+        if (nextState.count >= 4) {
+            return false
+        }
         return true
     }
 
@@ -42,10 +45,16 @@ class LifeCycleComp extends Component {
         console.log('componentWillUnmount')
     }
 
+    changeCount = () => {
+        this.setState ({
+            count: this.state.count +1
+        })
+    }
+
     render () {
         console.log('render')
         return (
-            <button>Component Button {this.state.count}</button>
+            <button onClick={this.changeCount}>Component Button {this.state.count}</button>
         )
     }
 }

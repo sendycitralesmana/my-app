@@ -4,6 +4,19 @@ import React, {Component} from "react";
 import LifeCycleComp from "../LifeCycle/LifeCycleComp";
 
 class Home extends React.Component {
+
+    state = {
+        showComponent: true
+    }
+
+    componentDidMount () {
+        // setTimeout (() => {
+        //     this.setState ({
+        //         showComponent: false
+        //     })
+        // }, 4000)
+    }
+
     render() {
         return (
             <div>
@@ -31,6 +44,12 @@ class Home extends React.Component {
                 <Product /> */}
                 <p>Life Cycle</p>
                 <hr />
+                {
+                    this.showComponent 
+                    ?
+                    <LifeCycleComp />
+                    : null
+                }
                 <LifeCycleComp />
             </div>
         )
